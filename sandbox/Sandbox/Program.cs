@@ -1,9 +1,40 @@
 using System;
 
-class Program
+public class Job
 {
-    static void Main(string[] args)
+public string _company;
+
+public string _jobtitle;
+
+public int _startyear;
+public int _endyear;
+
+public void DisplayResult()
+{
+    Console.WriteLine($"{_jobtitle} ({_company}) {_startyear}-{_endyear}");
+}
+}
+
+
+public class Resume
+{
+    public string _name;
+
+    // Make sure to initialize your list to a new List before you use it.
+    public List<Job> _jobs = new List<Job>();
+
+    public void Display()
     {
-        Console.WriteLine("Hello World! This is the Sandbox Project!");
+        Console.WriteLine($"Name: {_name}");
+        Console.WriteLine("Jobs:");
+
+        // Notice the use of the custom data type "Job" in this loop
+        foreach (Job job in _jobs)
+        {
+            // This calls the Display method on each job
+            job.DisplayResult();
+        }
     }
 }
+
+
